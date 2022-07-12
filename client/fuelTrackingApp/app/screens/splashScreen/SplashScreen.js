@@ -1,14 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, Image, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { COLORS } from '../../utils/Colors';
+const fuel = require('../../assets/fuel.jpg');
+const SplashScreen = ({ navigation }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('Home');
+    }, 3000);
+  }, []);
 
-const SplashScreen = () => {
   return (
-    <View>
-      <Text>SplashScreen</Text>
+    <View style={styles.container}>
+      <Image source={fuel} style={styles.image} />
     </View>
   );
 };
 
 export { SplashScreen };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.background,
+  },
+  image: {
+    width: 110,
+    height: 110,
+  },
+});
